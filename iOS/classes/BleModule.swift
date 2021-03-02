@@ -73,9 +73,10 @@ public class BleClientManager : NSObject {
 
         if let key = restoreIdentifierKey {
             manager = BluetoothManager(queue: queue,
-                                       options: [CBCentralManagerOptionRestoreIdentifierKey: key as AnyObject])
+                                       options: [CBCentralManagerOptionRestoreIdentifierKey: key as AnyObject,
+                                                 CBCentralManagerOptionShowPowerAlertKey: true as AnyObject])
         } else {
-            manager = BluetoothManager(queue: queue)
+            manager = BluetoothManager(queue: queue, options: [CBCentralManagerOptionShowPowerAlertKey: true as AnyObject])
         }
 
         super.init()
